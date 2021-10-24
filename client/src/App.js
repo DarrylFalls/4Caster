@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import axios from 'axios'
 import './App.css';
 
 function App() {
+  const [user, setUser] = useState('')
+  const [favorites, setFavorites] = useState([])
+  const [currentForcast, setCurrentForcast] = ('')
+  // const []
+
+  //weatherAPIkey = 5ae4ab16cf1646c9910231906212410
+
+
+  const getWeather = async () => {
+    const res = await axios.get(`http://api.climately.com/v1/131720d2c18944b29aa224153212410/`)
+    console.log(res.data)
+  }
+  const getUserInfo = async () => {
+    const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
+    setUser(res.data.records)
+    console.log(res.data.records[0].fields.favorites)
+  }
+
+  useEffect(() => (
+    getWeather(),
+    getUserInfo()
+  ), [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+
+      </div>
+      <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a>
     </div>
   );
 }
