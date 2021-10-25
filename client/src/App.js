@@ -30,7 +30,7 @@ function App() {
       <div>
 
       </div>
-      <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a>
+      <a href="https://www.weatherapi.com/" title="Weather API">Powered by WeatherAPI.com</a>
     </div>
   );
 }
