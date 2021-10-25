@@ -12,7 +12,7 @@ function App() {
 
 
   const getWeather = async () => {
-    const res = await axios.get(`http://api.climately.com/v1/131720d2c18944b29aa224153212410/`)
+    const res = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=5ae4ab16cf1646c9910231906212410&q=London&days=7&aqi=yes&alerts=yes`)
     console.log(res.data)
   }
   const getUserInfo = async () => {
