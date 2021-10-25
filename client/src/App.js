@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
   const [user, setUser] = useState('')
@@ -40,10 +41,11 @@ function App() {
   ), [])
   return (
     <div className="App">
+      <Navbar/>
       <div>
 
       </div>
-      <a href="https://www.weatherapi.com/" title="Weather API">Powered by WeatherAPI.com</a>
+      
     </div>
   );
 }
