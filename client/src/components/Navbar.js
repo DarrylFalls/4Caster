@@ -17,7 +17,7 @@ const Navbar = ({setLocation, location }) => {
       <MenuIcon className='menu-button'/>
       <div>
         <form onSubmit={handleSubmit}>
-          <input type='text' placeHolder='Search' value={input} onChange={(ev) => setInput(ev.target.value)} />
+          <input type='text' placeholder='Search' value={input} onChange={(ev) => setInput(ev.target.value)} />
           <input type='submit' value='Search' />
         </form>
       </div>
