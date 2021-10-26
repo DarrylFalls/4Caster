@@ -11,9 +11,12 @@
   display: none;
 }
 
+.menu-button-div {
+  margin-left: 20vw;
+}
 .menu-button {
   /* height: 50%; */
-  margin-left: 5vw;
+  /* margin-left: 5vw; */
   color: white;
 }
 

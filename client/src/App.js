@@ -12,7 +12,7 @@ function App() {
   const [weather, setWeather] = ([])
   const [location, setLocation] = useState('')
   const [toggleFetchWeather, setToggleFetchWeather] = useState(true)
-
+  const [loggedIn, setLoggedIn] = useState(false)
 
   
 
@@ -27,9 +27,7 @@ function App() {
     <div className="App">
       <Navbar setLocation={setLocation} location={location}/>
       <div>
-        
         {location ? <Location locationData={location} setWeather={setWeather} weather={weather} /> : null}
-        
       </div>
       
     </div>

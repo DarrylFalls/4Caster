@@ -2,6 +2,7 @@ import { useState } from "react"
 import './Navbar.css'
 import axios from "axios";
 import MenuIcon from '@mui/icons-material/Menu';
+import IconButton from '@mui/material/IconButton';
 
 const Navbar = ({setLocation, location }) => {
   const [input, setInput] = useState('')
@@ -14,7 +15,16 @@ const Navbar = ({setLocation, location }) => {
   }
   return (
     <div className='navbar'>
-      <MenuIcon className='menu-button' />
+      <IconButton
+        size="large"
+        // edge="start"
+        color="inherit"
+        aria-label="open drawer"
+        sx={{ mr: 2 }}
+        classname='menu-button-div'
+        >
+        <MenuIcon className='menu-button'/>
+      </IconButton>
       <div className='title'>
         <h1>4Caster</h1>
       </div>
