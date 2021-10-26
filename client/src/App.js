@@ -1,26 +1,26 @@
 import { useState } from 'react';
-// import axios from 'axios'
+import axios from 'axios'
 import './App.css';
-// import Navbar from './components/Navbar';
-// import SearchAppBar from './components/Navbar2';
-import Location from './components/Location';
 import Navbar from './components/Navbar';
+import SearchAppBar from './components/Navbar2';
+import Location from './components/Location';
+
 
 function App() {
-  // const [user, setUser] = useState('')
-  // const [favorites, setFavorites] = useState([])
-  const [weather, setWeather] = ('')
+  const [user, setUser] = useState('')
+  const [favorites, setFavorites] = useState([])
+  const [weather, setWeather] = ([])
   const [location, setLocation] = useState('')
-  // const [toggleFetchWeather, setToggleFetchWeather] = useState(true)
+  const [toggleFetchWeather, setToggleFetchWeather] = useState(true)
 
 
   
 
-  // const getUserInfo = async () => {
-  //   const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
-  //   setUser(res.data.records)
-  //   console.log(res.data.records)
-  // }
+  const getUserInfo = async () => {
+    const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
+    setUser(res.data.records)
+    console.log(res.data.records)
+  }
 
 
   return (

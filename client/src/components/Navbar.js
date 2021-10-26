@@ -14,7 +14,10 @@ const Navbar = ({setLocation, location }) => {
   }
   return (
     <div className='navbar'>
-      <MenuIcon className='menu-button'/>
+      <MenuIcon className='menu-button' />
+      <div className='title'>
+        <h1>4Caster</h1>
+      </div>
       <div>
         <form onSubmit={handleSubmit}>
           <input type='text' placeholder='Search' value={input} onChange={(ev) => setInput(ev.target.value)} />
