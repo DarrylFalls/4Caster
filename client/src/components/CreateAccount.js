@@ -7,7 +7,7 @@ const CreateAccount = () => {
 
   const newUser = async () => {
     let newUserData = {
-      return: [{
+      records: [{
         fields: {
           username ,
           password ,
@@ -18,9 +18,13 @@ const CreateAccount = () => {
     }
     await axios.post('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM', newUserData)
   }
+  const checkUsername = async () => {
+    const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
+  }
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
+    newUser()
   }
   return (
     <div>
@@ -30,7 +34,8 @@ const CreateAccount = () => {
         <br/>
         <label>Password: </label>
         <input value={password} onChange={(ev) => setPassword(ev.target.value)}></input>
-        <br/>
+        <br />
+        <input type='submit' value='Create Account' />
       </form>
     </div>
   )
