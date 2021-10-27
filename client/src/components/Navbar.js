@@ -3,12 +3,12 @@ import './Navbar.css'
 import axios from "axios";
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
-const Navbar = ({setLocation, location, loggedIn }) => {
+const Navbar = ({setLocation, location, loggedIn, setOnHomePage }) => {
   const [input, setInput] = useState('')
   const [titleSpace, setTitleSpace] = useState('')
-  const [redirect, setRedirect] = useState(false)
+  // const [redirect, setRedirect] = useState(false)
 
   const getTitleSpace = () => {
     if (loggedIn === true) {
@@ -24,17 +24,18 @@ const Navbar = ({setLocation, location, loggedIn }) => {
     setLocation(res.data.results[0].locations[0])
     console.log(res.data)
     setInput('');
-    setRedirect(!redirect)
-    setRedirect(!redirect)
+    setOnHomePage(false)
+    // setRedirect(!redirect)
+    // setRedirect(!redirect)
   }
 
   useEffect(() => {
     getTitleSpace()
   }, [loggedIn])
 
-  if (redirect === true) {
-    return <Redirect to={`/current-weather/place`}/>
-  }
+  // if (redirect === true) {
+  //   return <Redirect to={`/current-weather/place`}/>
+  // }
 
   return (
     <div className='navbar'>
@@ -48,12 +49,14 @@ const Navbar = ({setLocation, location, loggedIn }) => {
         <MenuIcon className='menu-button'/>
       </IconButton>
       <div className='title' style={{ margin: titleSpace }}>
+        <Link to='/' onClick={() => setOnHomePage(true)}>
         <h1>4Caster</h1>
+        </Link>
       </div>
       <div>
         {loggedIn ?
           <form onSubmit={handleSubmit}>
-            <input type='text' placeholder='Search' value={input} onChange={(ev) => setInput(ev.target.value)} />
+            <input type='text' placeholder='Search by city' value={input} onChange={(ev) => setInput(ev.target.value)} />
             <input type='submit' value='Search' />
           </form>
         : null}

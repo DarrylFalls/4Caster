@@ -3,7 +3,8 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import './Login.css'
 
-const Login = ({setLoggedIn}) => {
+
+const Login = ({setLoggedIn, setUser}) => {
   const getUserInfo = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
     // setUser(res.data.records)
@@ -11,6 +12,10 @@ const Login = ({setLoggedIn}) => {
   }
   const handleSubmit = (ev) => {
     ev.preventDefault()
+  }
+  const guestLogin = () => {
+    setLoggedIn(true)
+    setUser('Guest')
   }
   return (
     <div>
@@ -22,7 +27,7 @@ const Login = ({setLoggedIn}) => {
         <input></input>
         <br/>
       </form>
-      <p>If you are new to 4Caster, you can <Link to="/create-account">create an account</Link> or <u className='guest-link' onClick={() => setLoggedIn(true)} display='inline'>continue as a guest</u>.</p>
+      <p>If you are new to 4Caster, you can <Link to="/create-account">create an account</Link> or <u className='guest-link' onClick={guestLogin}>continue as a guest</u>.</p>
     </div>
   )
 }

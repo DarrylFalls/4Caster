@@ -1,8 +1,10 @@
 
 
-const Welcome = () => {
+const Welcome = ({user}) => {
   return (
-    <div></div>
+    <div>
+      <h2>Hi there, {user}</h2>
+    </div>
   )
 }
 

@@ -8,7 +8,7 @@ const Home = ({setLoggedIn, loggedIn, user, setUser, userData, setUserData}) => 
     <div>
       <div><h1>Welcome to 4Caster</h1></div>
       <div>
-        {loggedIn ? <Welcome /> : <Login setLoggedIn={setLoggedIn}/>}
+        {loggedIn ? <Welcome user={user} setUser={setUser} /> : <Login setLoggedIn={setLoggedIn} setUser={setUser}/>}
       </div>
     </div>
   )
