@@ -14,10 +14,7 @@ function App() {
   const [favorites, setFavorites] = useState([])
   const [weather, setWeather] = ([])
   const [location, setLocation] = useState('')
-  const [toggleFetchWeather, setToggleFetchWeather] = useState(true)
   const [loggedIn, setLoggedIn] = useState(false)
-
-  
 
   const getUserInfo = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
@@ -31,11 +28,11 @@ function App() {
       <Navbar setLocation={setLocation} location={location}/>
       <div>
         <Route path='/' exact>
-          <Home />
+          <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} userData={userData} setUserData={setUserData} />
         </Route>
-        <Route path='/current-weather/:place'>
+        {/* <Route path='/current-weather/:place'> */}
         {location ? <Location locationData={location} setWeather={setWeather} weather={weather} /> : null}
-        </Route>
+        {/* </Route> */}
       </div>
       
     </div>
