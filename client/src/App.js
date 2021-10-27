@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios'
 import './App.css';
 import Navbar from './components/Navbar';
@@ -17,19 +17,22 @@ function App() {
   const [location, setLocation] = useState('')
   const [loggedIn, setLoggedIn] = useState(false)
 
-  
+  useEffect(() => {
+  console.log(loggedIn)
+})
 
 
   return (
     <div className="App">
       <Navbar setLocation={setLocation} location={location} loggedIn={loggedIn}/>
+      <Link to='/'>Home</Link>
       <div>
         <Route path='/' exact>
           <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} userData={userData} setUserData={setUserData} />
         </Route>
-        {/* <Route path='/current-weather/:place'> */}
+        <Route path='/current-weather/place'>
         {location ? <Location locationData={location} setWeather={setWeather} weather={weather} /> : null}
-        {/* </Route> */}
+        </Route>
         <Route path='/create-account'>
           <CreateAccount setUserData={setUserData} />
         </Route>

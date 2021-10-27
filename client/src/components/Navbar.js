@@ -7,13 +7,14 @@ import { Redirect } from "react-router-dom";
 
 const Navbar = ({setLocation, location, loggedIn }) => {
   const [input, setInput] = useState('')
-  const [titleSpace, setTitleSpace] = ('')
+  const [titleSpace, setTitleSpace] = useState('')
+  const [redirect, setRedirect] = useState(false)
 
   const getTitleSpace = () => {
-    if (loggedIn) {
-      return setTitleSpace('-13vw')
+    if (loggedIn === true) {
+      setTitleSpace('-10vw')
     } else {
-      return setTitleSpace('0')
+      setTitleSpace('0')
     }
   }
 
@@ -23,8 +24,18 @@ const Navbar = ({setLocation, location, loggedIn }) => {
     setLocation(res.data.results[0].locations[0])
     console.log(res.data)
     setInput('');
-    return <Redirect to={`/current-weather/${input}`}/>
+    setRedirect(!redirect)
+    setRedirect(!redirect)
   }
+
+  useEffect(() => {
+    getTitleSpace()
+  }, [loggedIn])
+
+  if (redirect === true) {
+    return <Redirect to={`/current-weather/place`}/>
+  }
+
   return (
     <div className='navbar'>
       <IconButton
@@ -36,7 +47,7 @@ const Navbar = ({setLocation, location, loggedIn }) => {
         >
         <MenuIcon className='menu-button'/>
       </IconButton>
-      <div className='title' style={{ margin: `${titleSpace}`}}>
+      <div className='title' style={{ margin: titleSpace }}>
         <h1>4Caster</h1>
       </div>
       <div>
