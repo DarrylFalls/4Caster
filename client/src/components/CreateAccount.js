@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 
-const CreateAccount = () => {
+const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -20,11 +20,24 @@ const CreateAccount = () => {
   }
   const checkUsername = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
+    const nameCheck = res.data.records.find((record) => record.fields.username === username)
+    if (nameCheck) {
+      return true
+    } else {
+      return false
+    }
   }
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
-    newUser()
+    if (checkUsername()) {
+      alert('Username is already taken. Please choose a new username.')
+    } else {
+      newUser()
+      alert('Congratulations! You now have an account with 4Caster.')
+      setUser(username)
+      setLoggedIn(true)
+    }
   }
   return (
     <div>
