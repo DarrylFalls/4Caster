@@ -6,6 +6,7 @@ import SearchAppBar from './components/Navbar2';
 import Location from './components/Location';
 import Home from './components/Home';
 import {Route, Link} from 'react-router-dom'
+import CreateAccount from './components/CreateAccount';
 
 
 function App() {
@@ -16,16 +17,12 @@ function App() {
   const [location, setLocation] = useState('')
   const [loggedIn, setLoggedIn] = useState(false)
 
-  const getUserInfo = async () => {
-    const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
-    setUser(res.data.records)
-    console.log(res.data.records)
-  }
+  
 
 
   return (
     <div className="App">
-      <Navbar setLocation={setLocation} location={location}/>
+      <Navbar setLocation={setLocation} location={location} loggedIn={loggedIn}/>
       <div>
         <Route path='/' exact>
           <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} userData={userData} setUserData={setUserData} />
@@ -33,6 +30,9 @@ function App() {
         {/* <Route path='/current-weather/:place'> */}
         {location ? <Location locationData={location} setWeather={setWeather} weather={weather} /> : null}
         {/* </Route> */}
+        <Route path='/create-account'>
+          <CreateAccount setUserData={setUserData} />
+        </Route>
       </div>
       
     </div>

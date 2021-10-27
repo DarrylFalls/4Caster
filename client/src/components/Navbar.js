@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { Redirect } from "react-router-dom";
 
-const Navbar = ({setLocation, location }) => {
+const Navbar = ({setLocation, location, loggedIn }) => {
   const [input, setInput] = useState('')
   const handleSubmit = async (ev) => {
     ev.preventDefault()
@@ -26,14 +26,16 @@ const Navbar = ({setLocation, location }) => {
         >
         <MenuIcon className='menu-button'/>
       </IconButton>
-      <div className='title'>
+      <div className='title' style={{margin: 0}}>
         <h1>4Caster</h1>
       </div>
       <div>
-        <form onSubmit={handleSubmit}>
-          <input type='text' placeholder='Search' value={input} onChange={(ev) => setInput(ev.target.value)} />
-          <input type='submit' value='Search' />
-        </form>
+        {loggedIn ?
+          <form onSubmit={handleSubmit}>
+            <input type='text' placeholder='Search' value={input} onChange={(ev) => setInput(ev.target.value)} />
+            <input type='submit' value='Search' />
+          </form>
+        : null}
       </div>
     </div>
   )
