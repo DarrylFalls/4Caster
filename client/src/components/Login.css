@@ -1,0 +1,7 @@
+.guest-link:hover {
+  cursor: pointer;
+}
+
+.guest-link {
+  color: blue;
+}

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import './Navbar.css'
 import axios from "axios";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -7,6 +7,16 @@ import { Redirect } from "react-router-dom";
 
 const Navbar = ({setLocation, location, loggedIn }) => {
   const [input, setInput] = useState('')
+  const [titleSpace, setTitleSpace] = ('')
+
+  const getTitleSpace = () => {
+    if (loggedIn) {
+      return setTitleSpace('-13vw')
+    } else {
+      return setTitleSpace('0')
+    }
+  }
+
   const handleSubmit = async (ev) => {
     ev.preventDefault()
     const res = await axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&location=${input}`)
@@ -26,7 +36,7 @@ const Navbar = ({setLocation, location, loggedIn }) => {
         >
         <MenuIcon className='menu-button'/>
       </IconButton>
-      <div className='title' style={{margin: 0}}>
+      <div className='title' style={{ margin: `${titleSpace}`}}>
         <h1>4Caster</h1>
       </div>
       <div>
