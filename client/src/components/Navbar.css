@@ -4,11 +4,13 @@
   background: rgb(11, 29, 61);
   height: 10vh;
   align-items: center;
+  margin: 0;
 }
 
 .title {
   color: white;
   display: none;
+  margin-right: -13vw;
 }
 
 .menu-button-div {

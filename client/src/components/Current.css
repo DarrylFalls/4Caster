@@ -1,0 +1,9 @@
+.weather-icon {
+  height: 200px;
+  width: 200px;
+}
+
+.current-display {
+  background: rgb(82, 83, 151);
+  margin: 0;
+}

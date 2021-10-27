@@ -4,10 +4,13 @@ import './App.css';
 import Navbar from './components/Navbar';
 import SearchAppBar from './components/Navbar2';
 import Location from './components/Location';
+import Home from './components/Home';
+import {Route, Link} from 'react-router-dom'
 
 
 function App() {
   const [user, setUser] = useState('')
+  const [userData, setUserData] = useState('')
   const [favorites, setFavorites] = useState([])
   const [weather, setWeather] = ([])
   const [location, setLocation] = useState('')
@@ -27,7 +30,12 @@ function App() {
     <div className="App">
       <Navbar setLocation={setLocation} location={location}/>
       <div>
+        <Route path='/' exact>
+          <Home />
+        </Route>
+        <Route path='/current-weather/:place'>
         {location ? <Location locationData={location} setWeather={setWeather} weather={weather} /> : null}
+        </Route>
       </div>
       
     </div>

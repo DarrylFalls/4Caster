@@ -3,6 +3,7 @@ import './Navbar.css'
 import axios from "axios";
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
+import { Redirect } from "react-router-dom";
 
 const Navbar = ({setLocation, location }) => {
   const [input, setInput] = useState('')
@@ -11,13 +12,13 @@ const Navbar = ({setLocation, location }) => {
     const res = await axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&location=${input}`)
     setLocation(res.data.results[0].locations[0])
     console.log(res.data)
-    setInput('')
+    setInput('');
+    return <Redirect to={`/current-weather/${input}`}/>
   }
   return (
     <div className='navbar'>
       <IconButton
         size="large"
-        // edge="start"
         color="inherit"
         aria-label="open drawer"
         sx={{ mr: 2 }}
