@@ -30,7 +30,7 @@ function App() {
           {onHomePage ? <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} userData={userData} setUserData={setUserData} /> : null}
         </Route>
         
-        {location ? <Location locationData={location} setWeather={setWeather} weather={weather} /> : null}
+        {location && onHomePage === false ? <Location locationData={location} setWeather={setWeather} weather={weather} /> : null}
         
         <Route path='/create-account'>
           <CreateAccount setUserData={setUserData} />

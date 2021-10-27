@@ -25,7 +25,8 @@ const Login = ({setLoggedIn, setUser}) => {
         <br />
         <label>Password: </label>
         <input></input>
-        <br/>
+        <br />
+        <input type='submit' value='Login' />
       </form>
       <p>If you are new to 4Caster, you can <Link to="/create-account">create an account</Link> or <u className='guest-link' onClick={guestLogin}>continue as a guest</u>.</p>
     </div>

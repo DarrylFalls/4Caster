@@ -13,7 +13,7 @@ const Current = ({locationData, weatherData}) => {
         {weatherData ? <img src={`http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} className='weather-icon' /> : null}
       </div>
       <div>
-        <h1>{weatherData ? `${weatherData.current.temp}°F` : null}</h1>
+        <h1>{weatherData ? `${weatherData.current.temp}° F` : null}</h1>
       </div>
     </div>
   )

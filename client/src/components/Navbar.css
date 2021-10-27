@@ -10,7 +10,7 @@
 .title {
   color: white;
   display: none;
-  margin-right: -13vw;
+  /* margin-right: -13vw; */
 }
 
 .menu-button-div {
@@ -30,7 +30,11 @@ form{
 @media screen and (min-width: 600px) {
   .title{
     display: initial;
-    font-size: 200%;
+    font-size: 500%;
+    text-decoration: none;
+  }
+  .title-link {
+    text-decoration: none;
   }
   form{
     margin-right: 5vw;

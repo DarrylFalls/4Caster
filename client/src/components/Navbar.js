@@ -48,9 +48,9 @@ const Navbar = ({setLocation, location, loggedIn, setOnHomePage }) => {
         >
         <MenuIcon className='menu-button'/>
       </IconButton>
-      <div className='title' style={{ margin: titleSpace }}>
-        <Link to='/' onClick={() => setOnHomePage(true)}>
-        <h1>4Caster</h1>
+      <div style={{ margin: titleSpace }}>
+        <Link to='/' className='title-link' onClick={() => setOnHomePage(true)}>
+        <h1 className='title'>4Caster</h1>
         </Link>
       </div>
       <div>
