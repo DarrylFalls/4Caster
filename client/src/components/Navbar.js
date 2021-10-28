@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react"
 import './Navbar.css'
 import axios from "axios";
-import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SwipeableTemporaryDrawer from "./SwipableDrawer";
 
-const Navbar = ({setLocation, location, loggedIn, setOnHomePage, favorites }) => {
+const Navbar = ({setLocation, location, loggedIn, setOnHomePage, favorites, userData, user }) => {
   const [input, setInput] = useState('')
   const [titleSpace, setTitleSpace] = useState('')
-  // const [redirect, setRedirect] = useState(false)
 
   const getTitleSpace = () => {
     if (loggedIn === true) {
@@ -26,8 +24,6 @@ const Navbar = ({setLocation, location, loggedIn, setOnHomePage, favorites }) =>
     console.log(res.data)
     setInput('');
     setOnHomePage(false)
-    // setRedirect(!redirect)
-    // setRedirect(!redirect)
   }
 
   useEffect(() => {
@@ -38,22 +34,12 @@ const Navbar = ({setLocation, location, loggedIn, setOnHomePage, favorites }) =>
     setInput('')
   }, [location])
 
-  // if (redirect === true) {
-  //   return <Redirect to={`/current-weather/place`}/>
-  // }
 
   return (
     <div className='navbar'>
-      <IconButton
-        size="large"
-        color="inherit"
-        aria-label="open drawer"
-        sx={{ mr: 2 }}
-        classname='menu-button-div'
-      >
-        {/* <MenuIcon className='menu-button' /> */}
-        <SwipeableTemporaryDrawer className='menu-button' favorites={favorites} setOnHomePage={setOnHomePage} setLocation={setLocation} />
-      </IconButton>
+      
+        <SwipeableTemporaryDrawer className='menu-button' user={user} favorites={favorites} loggedIn={loggedIn} setOnHomePage={setOnHomePage} setLocation={setLocation} userData={userData}/>
+      
       <div style={{ margin: titleSpace }}>
         <Link to='/' className='title-link' onClick={() => setOnHomePage(true)}>
         <h1 className='title'>4Caster</h1>

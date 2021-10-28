@@ -7,3 +7,7 @@
   background: rgb(82, 83, 151);
   margin: 0;
 }
+
+.add-favorite:hover {
+  cursor: pointer;
+}

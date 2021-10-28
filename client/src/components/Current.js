@@ -1,12 +1,35 @@
 import './Current.css'
 import axios from 'axios'
 
-const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavorites }) => {
-  const addFavorite = async () => {
+const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavorites, userData, setUserData }) => {
+  const newFavs = () => {
     setFavorites(favorites.push(locationData.adminArea5))
-    
-    await axios.put('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
+    console.log(favorites)
   }
+  const resetData = (account) => {
+    setUserData(account)
+    setFavorites(account.fields.favorites)
+    console.log(favorites)
+  }
+  const addFavorite = async () => {
+    console.log(favorites)
+    newFavs()
+    let update = {
+      records: [{
+        id: userData.id,
+        fields: {
+          username: userData.fields.username,
+          password: userData.fields.password,
+          favorites,
+        },
+      }]
+    }
+    await axios.put('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM', update)
+    const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
+    const account = res.data.records.find((record) => record.id === userData.id)
+    resetData(account)
+  }
+
   return (
     <div className='current-display'>
       <div>

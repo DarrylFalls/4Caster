@@ -24,13 +24,13 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setLocation={setLocation} location={location} loggedIn={loggedIn} setOnHomePage={setOnHomePage} favorites={favorites}/>
+      <Navbar setLocation={setLocation} location={location} loggedIn={loggedIn} setOnHomePage={setOnHomePage} favorites={favorites} userData={userData} user={user} />
       <div>
         <Route path='/' exact>
           {onHomePage ? <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} userData={userData} setUserData={setUserData} setFavorites={setFavorites} /> : null}
         </Route>
         
-        {location && onHomePage === false ? <Location locationData={location} setWeather={setWeather} weather={weather} loggedIn={loggedIn} user={user} favorites={favorites} setFavorites={setFavorites} /> : null}
+        {location && onHomePage === false ? <Location locationData={location} setWeather={setWeather} weather={weather} loggedIn={loggedIn} user={user} favorites={favorites} setFavorites={setFavorites} userData={userData} setUserData={setUserData} /> : null}
         
         <Route path='/create-account'>
           <CreateAccount setUserData={setUserData} setUser={setUser} setLoggedIn={setLoggedIn} />

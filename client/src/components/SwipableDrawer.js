@@ -12,6 +12,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { IconButton } from '@mui/material';
 
 export default function SwipeableTemporaryDrawer(props) {
 
@@ -53,28 +54,22 @@ export default function SwipeableTemporaryDrawer(props) {
         <Link to='/'>
           <ListItemText>Home</ListItemText>
         </Link>
-        {props.favorites.map((text, index) => (
+        <Divider />
+        {props.userData && props.loggedIn && props.user !== 'Guest' ? props.userData.fields.favorites.map((text, index) => (
           <ListItem button key={text}>
-            <ListItemText primary={text} value={text} onClick={async () => {
+            <ListItemText primary={text} onClick={async () => {
               props.setOnHomePage(false)
               const res = await axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&location=${text}`)
               props.setLocation(res.data.results[0].locations[0])
               console.log(res.data)
             }}/>
           </ListItem>
-        ))}
+        )) : 
+          <ListItemText
+            primary='Login to use favorites.'
+          />
+        }
       </List>
-      <Divider />
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List> */}
     </Box>
   );
 
@@ -82,7 +77,14 @@ export default function SwipeableTemporaryDrawer(props) {
     <div>
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <MenuIcon onClick={toggleDrawer(anchor, true)} style={{color: 'white'}}/>
+          <IconButton
+            size="large"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon onClick={toggleDrawer(anchor, true)} style={{color: 'white'}}/>
+          </IconButton>
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}
