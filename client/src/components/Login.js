@@ -4,17 +4,33 @@ import { Link } from "react-router-dom"
 import './Login.css'
 
 
-const Login = ({ setLoggedIn, setUser }) => {
+const Login = ({ setLoggedIn, setUser, setUserData, setFavorites }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const getUserInfo = async () => {
+
+  const checkUserInfo = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
-    // setUser(res.data.records)
     console.log(res.data.records)
+    let account = res.data.records.find((record) => record.fields.username === username)
+    if (account === undefined) {
+      alert('Sorry. That username does not exist')
+    } else {
+      if (account.fields.password === password) {
+        setUserData(account.fields)
+        setLoggedIn(true)
+        setUser(account.fields.username)
+        setFavorites(account.fields.favorites)
+      } else {
+        alert('Sorry. That password is incorrect.')
+      }
+    }
   }
+
   const handleSubmit = (ev) => {
     ev.preventDefault()
+    checkUserInfo()
   }
+
   const guestLogin = () => {
     setLoggedIn(true)
     setUser('Guest')

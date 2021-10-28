@@ -19,6 +19,7 @@ const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
     ]
     }
     await axios.post('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM', newUserData)
+    setUserData(newUserData.records)
   }
   const checkUsername = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
