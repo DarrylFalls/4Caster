@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setLocation={setLocation} location={location} loggedIn={loggedIn} setOnHomePage={setOnHomePage}/>
+      <Navbar setLocation={setLocation} location={location} loggedIn={loggedIn} setOnHomePage={setOnHomePage} favorites={favorites}/>
       <div>
         <Route path='/' exact>
           {onHomePage ? <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} userData={userData} setUserData={setUserData} setFavorites={setFavorites} /> : null}

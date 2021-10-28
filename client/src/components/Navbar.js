@@ -4,8 +4,9 @@ import axios from "axios";
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { Redirect, Link } from "react-router-dom";
+import SwipeableTemporaryDrawer from "./SwipableDrawer";
 
-const Navbar = ({setLocation, location, loggedIn, setOnHomePage }) => {
+const Navbar = ({setLocation, location, loggedIn, setOnHomePage, favorites }) => {
   const [input, setInput] = useState('')
   const [titleSpace, setTitleSpace] = useState('')
   // const [redirect, setRedirect] = useState(false)
@@ -45,8 +46,9 @@ const Navbar = ({setLocation, location, loggedIn, setOnHomePage }) => {
         aria-label="open drawer"
         sx={{ mr: 2 }}
         classname='menu-button-div'
-        >
-        <MenuIcon className='menu-button'/>
+      >
+        {/* <MenuIcon className='menu-button' /> */}
+        <SwipeableTemporaryDrawer className='menu-button' favorites={favorites} setOnHomePage={setOnHomePage} setLocation={setLocation} />
       </IconButton>
       <div style={{ margin: titleSpace }}>
         <Link to='/' className='title-link' onClick={() => setOnHomePage(true)}>

@@ -16,7 +16,10 @@ const Location = ({ locationData, setWeather, weather }) => {
   return (
     <div>
       <div>
-        <Current locationData={locationData} weatherData={weatherData}/>
+        <Current locationData={locationData} weatherData={weatherData} />
+      </div>
+      <div>
+        
       </div>
     </div>
   )
