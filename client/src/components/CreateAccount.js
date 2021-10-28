@@ -1,9 +1,11 @@
 import axios from "axios"
 import { useState } from "react"
+import { Redirect } from "react-router-dom"
 
 const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [redirect, setRedirect] = useState(false)
 
   const newUser = async () => {
     let newUserData = {
@@ -21,24 +23,29 @@ const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
   const checkUsername = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
     const nameCheck = res.data.records.find((record) => record.fields.username === username)
-    if (nameCheck) {
-      return true
-    } else {
-      return false
-    }
+    console.log(nameCheck)
+    setTimeout(() => {
+      if (nameCheck === undefined) {
+        newUser()
+        alert('Congratulations! You now have an account with 4Caster.')
+        setUser(username)
+        setLoggedIn(true)
+      } else {
+        alert('Username is already taken. Please choose a new username.')
+      }
+    }, 100)
   }
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
-    if (checkUsername()) {
-      alert('Username is already taken. Please choose a new username.')
-    } else {
-      newUser()
-      alert('Congratulations! You now have an account with 4Caster.')
-      setUser(username)
-      setLoggedIn(true)
-    }
+    checkUsername()
+    setRedirect(true)
   }
+
+  if (redirect === true) {
+    return <Redirect to='/'/>
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>

@@ -4,7 +4,9 @@ import { Link } from "react-router-dom"
 import './Login.css'
 
 
-const Login = ({setLoggedIn, setUser}) => {
+const Login = ({ setLoggedIn, setUser }) => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const getUserInfo = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
     // setUser(res.data.records)
@@ -21,10 +23,10 @@ const Login = ({setLoggedIn, setUser}) => {
     <div>
       <form onSubmit={handleSubmit}>
         <label>Username: </label>
-        <input></input>
+        <input value={username} onChange={(ev) => setUsername(ev.target.value)}></input>
         <br />
         <label>Password: </label>
-        <input></input>
+        <input value={password} onChange={(ev) => setPassword(ev.target.value)}></input>
         <br />
         <input type='submit' value='Login' />
       </form>
