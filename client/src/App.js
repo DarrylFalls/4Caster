@@ -17,9 +17,9 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [onHomePage, setOnHomePage] = useState(true)
 
-  useEffect(() => {
-    console.log(loggedIn)
-  })
+  // useEffect(() => {
+  //   console.log(loggedIn)
+  // })
 
 
   return (
