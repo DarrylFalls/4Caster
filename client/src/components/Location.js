@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import Current from "./Current"
+import DailyForcast from "./DailyForcast"
+import DailyForcastSmall from "./DailyForcastSmall"
 
 
 const Location = ({ locationData, setWeather, weather }) => {
@@ -19,7 +21,7 @@ const Location = ({ locationData, setWeather, weather }) => {
         <Current locationData={locationData} weatherData={weatherData} />
       </div>
       <div>
-        
+        {window.screen.width<800 ? <DailyForcastSmall/> : <DailyForcast/>}
       </div>
     </div>
   )

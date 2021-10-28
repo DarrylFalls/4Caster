@@ -7,6 +7,9 @@ const Current = ({locationData, weatherData}) => {
         <h1>{locationData.adminArea5}, {locationData.adminArea1 === 'US' ? `${locationData.adminArea3}, ${locationData.adminArea1}` : `${locationData.adminArea1}`}</h1>
       </div>
       <div>
+        <p className='add-favorite'>+ add to favorites</p>
+      </div>
+      <div>
         <h3>{weatherData ? weatherData.current.weather[0].description : null}</h3>
       </div>
       <div>

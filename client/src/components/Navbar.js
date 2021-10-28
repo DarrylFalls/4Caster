@@ -34,6 +34,10 @@ const Navbar = ({setLocation, location, loggedIn, setOnHomePage, favorites }) =>
     getTitleSpace()
   }, [loggedIn])
 
+  useEffect(() => {
+    setInput('')
+  }, [location])
+
   // if (redirect === true) {
   //   return <Redirect to={`/current-weather/place`}/>
   // }
