@@ -1,6 +1,6 @@
 
 
-const DailyForcast = () => {
+const DailyForcast = ({weatherData}) => {
   return (
     <div></div>
   )

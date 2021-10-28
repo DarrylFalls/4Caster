@@ -21,7 +21,7 @@ const Location = ({ locationData, setWeather, weather, loggedIn, user, favorites
         <Current locationData={locationData} weatherData={weatherData} loggedIn={loggedIn} user={user} favorites={favorites} setFavorites={setFavorites} userData={userData} setUserData={setUserData} />
       </div>
       <div>
-        {window.screen.width<800 ? <DailyForcastSmall/> : <DailyForcast/>}
+        {window.screen.width < 800 ? <DailyForcastSmall weatherData={weatherData} /> : <DailyForcast weatherData={weatherData}/>}
       </div>
     </div>
   )

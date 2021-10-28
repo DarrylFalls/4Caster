@@ -1,4 +1,4 @@
-
+import './Welcome.css'
 
 const Welcome = ({user}) => {
   return (

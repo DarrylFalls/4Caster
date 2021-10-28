@@ -47,16 +47,22 @@ const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavo
         <h1>{locationData.adminArea5}, {locationData.adminArea1 === 'US' ? `${locationData.adminArea3}, ${locationData.adminArea1}` : `${locationData.adminArea1}`}</h1>
       </div>
       <div>
-        {user !== 'Guest' && loggedIn == true ? <p className='add-favorite' onClick={addFavorite}>+ add to favorites</p> : <p>Login to add to favorites</p>}
+        {user !== 'Guest' && loggedIn == true ? userData.fields.favorites.find((fav) => fav === locationData.adminArea5) ? null : <p className='add-favorite' onClick={addFavorite}>+ add to favorites</p> : <p>Login to add to favorites</p>}
       </div>
       <div>
         <h3>{weatherData ? weatherData.current.weather[0].description : null}</h3>
       </div>
       <div>
-        {weatherData ? <img src={`http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} className='weather-icon' /> : null}
+        {weatherData ?  <img src={`http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} className='weather-icon' /> : null}
       </div>
       <div>
         <h1>{weatherData ? `${weatherData.current.temp}° F` : null}</h1>
+      </div>
+      <div>
+        <h4>{weatherData ? `Feels Like: ${weatherData.current.feels_like}° F` : null}</h4>
+      </div>
+      <div>
+        <h4>{weatherData ? `Wind Speed: ${weatherData.current.wind_speed}mph` : null}</h4>
       </div>
     </div>
   )

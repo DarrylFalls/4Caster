@@ -3,10 +3,14 @@
 }
 
 .guest-link {
-  color: blue;
+  color: rgb(5, 172, 83);
 }
 
 p {
   margin-left: 5vw;
   margin-right: 5vw;
+}
+
+a {
+  color: rgb(5, 172, 83);
 }
