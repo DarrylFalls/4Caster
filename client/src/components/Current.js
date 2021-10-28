@@ -6,31 +6,29 @@ const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavo
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [id, setId] = useState('')
-  const newFavs = () => {
-    setFavorites(favorites.push(locationData.adminArea5))
-    setUsername(userData.fields.username)
-    setId(userData.id)
-    setPassword(userData.fields.password)
-    console.log(favorites)
-  }
+  // const newFavs = () => {
+    // setFavorites(favorites.push(locationData.adminArea5))
+  //   setUsername(userData.fields.username)
+  //   setId(userData.id)
+  //   setPassword(userData.fields.password)
+  //   console.log(favorites)
+  // }
   const resetData = (account) => {
     setUserData(account)
-    setFavorites(account.fields.favorites)
+    setFavorites(JSON.parse(account.fields.favorites))
     console.log(favorites)
   }
   const addFavorite = async () => {
-    console.log(favorites)
-    console.log(username)
-    console.log(password)
+    // newFavs()
+    console.log(userData.id)
     console.log(id)
-    newFavs()
     let update = {
       records: [{
-        id,
+        id: userData.id,
         fields: {
-          username,
-          password,
-          favorites,
+          username: userData.fields.username,
+          password: userData.fields.password,
+          favorites: JSON.stringify([...favorites, locationData.adminArea5])
         }
       }]
     }
@@ -47,7 +45,7 @@ const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavo
         <h1>{locationData.adminArea5}, {locationData.adminArea1 === 'US' ? `${locationData.adminArea3}, ${locationData.adminArea1}` : `${locationData.adminArea1}`}</h1>
       </div>
       <div>
-        {user !== 'Guest' && loggedIn == true ? userData.fields.favorites.find((fav) => fav === locationData.adminArea5) ? null : <p className='add-favorite' onClick={addFavorite}>+ add to favorites</p> : <p>Login to add to favorites</p>}
+        {user !== 'Guest' && loggedIn == true ? favorites.find((fav) => fav === locationData.adminArea5) ? null : <p className='add-favorite' onClick={addFavorite}>+ add to favorites</p> : <p>Login to add to favorites</p>}
       </div>
       <div>
         <h3>{weatherData ? weatherData.current.weather[0].description : null}</h3>

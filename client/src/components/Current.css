@@ -7,6 +7,7 @@
   background: rgb(82, 83, 151);
   margin: 0;
   position: relative;
+  padding-bottom: 3vh;
 }
 
 .add-favorite:hover {

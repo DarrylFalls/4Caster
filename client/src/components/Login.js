@@ -19,7 +19,7 @@ const Login = ({ setLoggedIn, setUser, setUserData, setFavorites }) => {
         setUserData(account)
         setLoggedIn(true)
         setUser(account.fields.username)
-        setFavorites(account.fields.favorites)
+        setFavorites(JSON.parse(account.fields.favorites))
       } else {
         alert('Sorry. That password is incorrect.')
       }

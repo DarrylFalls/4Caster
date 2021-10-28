@@ -87,7 +87,7 @@ export default function SwipeableTemporaryDrawer(props) {
           </ListItem>
         <Divider />
         <h3>Favorites:</h3>
-        {props.userData && props.loggedIn && props.user !== 'Guest' ? props.userData.fields.favorites ? props.userData.fields.favorites.map((text, index) => (
+        {props.userData && props.loggedIn && props.user !== 'Guest' ? props.userData.fields.favorites ? props.favorites.map((text, index) => (
           <ListItem button key={text}>
             <ListItemText primary={text} onClick={async () => {
               props.setOnHomePage(false)
@@ -115,8 +115,9 @@ export default function SwipeableTemporaryDrawer(props) {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={toggleDrawer(anchor, true)}
           >
-            <MenuIcon onClick={toggleDrawer(anchor, true)} style={{color: 'white'}}/>
+            <MenuIcon style={{color: 'white'}}/>
           </IconButton>
           <SwipeableDrawer
             anchor={anchor}
