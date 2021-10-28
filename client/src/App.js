@@ -24,8 +24,8 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setLocation={setLocation} location={location} loggedIn={loggedIn} setOnHomePage={setOnHomePage} favorites={favorites} userData={userData} user={user} />
-      <div>
+      <Navbar setLocation={setLocation} location={location} loggedIn={loggedIn} setLoggedIn={setLoggedIn} setOnHomePage={setOnHomePage} favorites={favorites} userData={userData} user={user} setUser={setUser} />
+      <div className='display-div'>
         <Route path='/' exact>
           {onHomePage ? <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} userData={userData} setUserData={setUserData} setFavorites={setFavorites} /> : null}
         </Route>

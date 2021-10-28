@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import { Link } from "react-router-dom";
 import SwipeableTemporaryDrawer from "./SwipableDrawer";
 
-const Navbar = ({setLocation, location, loggedIn, setOnHomePage, favorites, userData, user }) => {
+const Navbar = ({setLocation, location, loggedIn, setLoggedIn, setOnHomePage, favorites, userData, user, setUser }) => {
   const [input, setInput] = useState('')
   const [titleSpace, setTitleSpace] = useState('')
 
@@ -38,7 +38,7 @@ const Navbar = ({setLocation, location, loggedIn, setOnHomePage, favorites, user
   return (
     <div className='navbar'>
       
-        <SwipeableTemporaryDrawer className='menu-button' user={user} favorites={favorites} loggedIn={loggedIn} setOnHomePage={setOnHomePage} setLocation={setLocation} userData={userData}/>
+        <SwipeableTemporaryDrawer className='menu-button' setOnHomePage={setOnHomePage} user={user} setUser={setUser} favorites={favorites} loggedIn={loggedIn} setLoggedIn={setLoggedIn} setOnHomePage={setOnHomePage} setLocation={setLocation} userData={userData}/>
       
       <div style={{ margin: titleSpace }}>
         <Link to='/' className='title-link' onClick={() => setOnHomePage(true)}>

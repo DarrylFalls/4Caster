@@ -6,6 +6,7 @@
 .current-display {
   background: rgb(82, 83, 151);
   margin: 0;
+  position: relative;
 }
 
 .add-favorite:hover {

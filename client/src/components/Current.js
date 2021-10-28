@@ -1,9 +1,16 @@
 import './Current.css'
 import axios from 'axios'
+import { useState } from 'react'
 
 const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavorites, userData, setUserData }) => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [id, setId] = useState('')
   const newFavs = () => {
     setFavorites(favorites.push(locationData.adminArea5))
+    setUsername(userData.fields.username)
+    setId(userData.id)
+    setPassword(userData.fields.password)
     console.log(favorites)
   }
   const resetData = (account) => {
@@ -13,17 +20,21 @@ const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavo
   }
   const addFavorite = async () => {
     console.log(favorites)
+    console.log(username)
+    console.log(password)
+    console.log(id)
     newFavs()
     let update = {
       records: [{
-        id: userData.id,
+        id,
         fields: {
-          username: userData.fields.username,
-          password: userData.fields.password,
+          username,
+          password,
           favorites,
-        },
+        }
       }]
     }
+
     await axios.put('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM', update)
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
     const account = res.data.records.find((record) => record.id === userData.id)

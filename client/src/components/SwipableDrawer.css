@@ -1,0 +1,10 @@
+.drawer-display {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  padding-top: 7vh;
+}
+
+.menu-link {
+  font-size: 120%;
+}

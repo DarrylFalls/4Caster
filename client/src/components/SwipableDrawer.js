@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { IconButton } from '@mui/material';
+import './SwipableDrawer.css'
 
 export default function SwipeableTemporaryDrawer(props) {
 
@@ -49,12 +50,40 @@ export default function SwipeableTemporaryDrawer(props) {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      className='drawer-display'
     >
       <List>
-        <Link to='/'>
-          <ListItemText>Home</ListItemText>
+        <ListItem>
+        <Link to='/' className='menu-link'>
+          Home
         </Link>
+        </ListItem>
+        <ListItem>
+        {props.loggedIn && props.user !== 'Guest' ?
+            <Link to='/'
+            className='menu-link'
+            onClick={() => {
+            props.setLoggedIn(false)
+            props.setUser('')
+            props.setOnHomePage(true)
+            props.setLocation('')
+            }}>
+            Logout
+          </Link>
+          :
+            <Link to='/'
+            className='menu-link'
+            onClick={() => {
+            props.setLoggedIn(false)
+            props.setUser('')
+            props.setOnHomePage(true)
+            props.setLocation('')
+            }}>
+            Login
+          </Link>}
+          </ListItem>
         <Divider />
+        <h3>Favorites:</h3>
         {props.userData && props.loggedIn && props.user !== 'Guest' ? props.userData.fields.favorites.map((text, index) => (
           <ListItem button key={text}>
             <ListItemText primary={text} onClick={async () => {
