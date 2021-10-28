@@ -16,7 +16,7 @@ const Login = ({ setLoggedIn, setUser, setUserData, setFavorites }) => {
       alert('Sorry. That username does not exist')
     } else {
       if (account.fields.password === password) {
-        setUserData(account.fields)
+        setUserData(account)
         setLoggedIn(true)
         setUser(account.fields.username)
         setFavorites(account.fields.favorites)
