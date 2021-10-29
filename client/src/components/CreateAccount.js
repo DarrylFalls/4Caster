@@ -59,6 +59,7 @@ const CreateAccount = ({setUser, setUserData, setLoggedIn, setFavorites}) => {
 
   return (
     <div className='create-account-div'>
+      <h1>Create New Account</h1>
       <form onSubmit={handleSubmit} className='create-account-form'>
         <label>Username: </label>
         <input value={username} onChange={(ev) => setUsername(ev.target.value)}></input>
