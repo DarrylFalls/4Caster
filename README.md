@@ -9,7 +9,8 @@
 https://whimsical.com/weather-app-7jzmNrXKrRfJhJTYVwJaq4
 
 ## Component Hierarchy:
-  - add components
+
+https://whimsical.com/5eqKh3PCh2BaRvoL2fEpZq
 
 ## API:
   - Airtable will be used to create accounts and store a favorites list of locations
