@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { Redirect } from "react-router-dom"
+import './CreateAccount.css'
 
 const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
   const [username, setUsername] = useState('')
@@ -48,8 +49,8 @@ const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='create-account-div'>
+      <form onSubmit={handleSubmit} className='create-account-form'>
         <label>Username: </label>
         <input value={username} onChange={(ev) => setUsername(ev.target.value)}></input>
         <br/>

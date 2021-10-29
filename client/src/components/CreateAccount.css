@@ -1,0 +1,13 @@
+.create-account-div {
+  margin-top: 10vh;
+}
+
+.create-account-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(119, 119, 119);
+  border-radius: 15px;
+  padding: 30px;
+}
