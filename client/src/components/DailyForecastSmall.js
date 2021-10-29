@@ -5,21 +5,31 @@ import './DailyForecastSmall.css'
 
 const DailyForcastSmall = ({ weatherData }) => {
   const [day, setDay] = useState(0)
+  const [more, setMore] = useState(false)
   const addDay = () => {
-    setDay(day+1)
+    setDay(day + 1)
+    setMore(false)
   }
   const minusDay = () => {
-    setDay(day-1)
+    setDay(day - 1)
+    setMore(false)
   }
   const getDay = (dt) => {
     const a = new Date(dt * 1000);
     const year = a.getFullYear();
     const month = a.getMonth()+1;
     const day = a.getDate();
-
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return(weekday[new Date(`${month}/${day}/${year}`).getDay()])
   }
+  const getTime = (dt) => {
+    const a = new Date(dt * 1000);
+    const hour = a.getHours();
+    const min = a.getMinutes();
+    const sec = a.getSeconds();
+    return (`${hour < 10 ? '0' + hour : hour}:${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}`)
+  }
+  // console.log(weatherData.daily[0].sunset + weatherData.timezone_offset)
   return (
     <div className='small-forecast'>
       <div>
@@ -30,9 +40,14 @@ const DailyForcastSmall = ({ weatherData }) => {
         {weatherData && day === 0 ? 
           <div className='day-div'>
             <h1>{getDay(weatherData.daily[0].dt)}</h1>
+            <h4>{weatherData.daily[0].weather[0].description}</h4>
             <img src={`http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}.png`} className='small-forecast-icon'/>
             <h4>{`Min: ${weatherData.daily[0].temp.min}`}</h4>
             <h4>{`Max: ${weatherData.daily[0].temp.max}`}</h4>
+            {more ? <h4>{`UV Index: ${weatherData.daily[0].uvi}`}</h4> : null}
+            {more ? <h4>{`Humidity: ${weatherData.daily[0].humidity}`}</h4> : null}
+            {more ? <h4>{`Sunrise: ${getTime(weatherData.daily[0].sunrise)}`}</h4> : null}
+            {more ? <h4>{`Sunset: ${getTime(weatherData.daily[0].sunset)}`}</h4> : null}
           </div>
           : null}
         {weatherData && day === 1 ? <h1>{getDay(weatherData.daily[1].dt)}</h1> : null}
@@ -42,6 +57,8 @@ const DailyForcastSmall = ({ weatherData }) => {
         {weatherData && day === 5 ? <h1>{getDay(weatherData.daily[5].dt)}</h1> : null}
         {weatherData && day === 6 ? <h1>{getDay(weatherData.daily[6].dt)}</h1> : null}
         {weatherData && day === 7 ? <h1>{getDay(weatherData.daily[7].dt)}</h1> : null}
+        {more ? <button onClick={() => setMore(false)}>Show Less</button> : <button onClick={() => setMore(true)}>Show More</button>}
+        
       </div>
       
       <div>
