@@ -69,3 +69,7 @@ https://whimsical.com/5eqKh3PCh2BaRvoL2fEpZq
 
 
 ## SWOT Analysis:
+  - Strengths: I'm skilled in figuring out complex logic and doing research.
+  - Weaknesses: I'm not as comfortable in React as I am in vanilla JavaScript.
+  - Opportunities: I have a good opportunity to learn more about React and what I'm able to do with it.
+  - Threats: Airtable may not work the way I want it to. React has some rules that make it hard to work with without beingmore familiar with the framework.
