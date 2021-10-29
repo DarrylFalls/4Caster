@@ -4,8 +4,10 @@
 }
 
 .current-display {
-  /* background: rgb(82, 83, 151); */
-  margin: 0;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 3vh;
   position: relative;
   padding-bottom: 3vh;
 }
@@ -15,12 +17,16 @@
 }
 
 h4 {
-  margin: 0;
+  margin: 5px;
 }
 
 .background-video {
-  z-index: 10;
   object-fit: cover;
+  width: 100%;
+}
+
+.current-info-div {
+  z-index: 10;
 }
 
 .video-div {
@@ -28,10 +34,15 @@ h4 {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  height: 20vh;
-  /* width: 100%; */
-  width: 100%;
+  width: 100vw;
   height: 100%;
   position: absolute;
   top: 0;
+  z-index: 2;
+}
+
+.info {
+  background: rgba(97, 97, 97, 0.712);
+  border-radius: 10px;
+  width: auto;
 }

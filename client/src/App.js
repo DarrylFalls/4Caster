@@ -36,7 +36,6 @@ function App() {
           <CreateAccount setUserData={setUserData} setUser={setUser} setLoggedIn={setLoggedIn} />
         </Route>
       </div>
-      
     </div>
   );
 }
