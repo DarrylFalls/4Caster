@@ -1,12 +1,19 @@
 import axios from "axios"
+import { async } from "q"
 import { useState } from "react"
 import { Redirect } from "react-router-dom"
 import './CreateAccount.css'
 
-const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
+const CreateAccount = ({setUser, setUserData, setLoggedIn, setFavorites}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [redirect, setRedirect] = useState(false)
+
+  const getData = async () => {
+    const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
+    setUserData(res.data.records.find((record) => record.fields.username === username))
+    console.log(res.data.records.find((record) => record.fields.username === username))
+  }
 
   const newUser = async () => {
     let newUserData = {
@@ -14,15 +21,18 @@ const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
         fields: {
           username ,
           password ,
-          favorites: [],
+          favorites: '[]',
         }
       }
     ]
     }
     await axios.post('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM', newUserData)
-    const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
-    setUserData(res.data.records.find((record) => record.fields.username === username))
+    getData()
+    setUser(username)
+    setFavorites([])
   }
+
+
   const checkUsername = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
     const nameCheck = res.data.records.find((record) => record.fields.username === username)

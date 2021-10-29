@@ -27,7 +27,7 @@ function App() {
         {location && onHomePage === false ? <Location locationData={location} setWeather={setWeather} weather={weather} loggedIn={loggedIn} user={user} favorites={favorites} setFavorites={setFavorites} userData={userData} setUserData={setUserData} /> : null}
         
         <Route path='/create-account'>
-          <CreateAccount setUserData={setUserData} setUser={setUser} setLoggedIn={setLoggedIn} />
+          <CreateAccount setUserData={setUserData} setUser={setUser} setLoggedIn={setLoggedIn} setFavorites={setFavorites}/>
         </Route>
       </div>
     </div>
