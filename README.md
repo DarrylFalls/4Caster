@@ -14,6 +14,25 @@ https://whimsical.com/weather-app-7jzmNrXKrRfJhJTYVwJaq4
 ## API:
   - Airtable will be used to create accounts and store a favorites list of locations
 
+  ```
+  "records": [
+        {
+            "id": "rec2xm7cCRm9DRX49",
+            "fields": {
+                "favorites": [
+                    "Raleigh",
+                    "New York",
+                    "Roanoke",
+                    "London"
+                ],
+                "username": "DarrylFallsDown",
+                "password": "password"
+            },
+            "createdTime": "2021-10-21T19:05:38.000Z"
+        }
+    ]
+  ```
+
 ## MVP:
   - User will be able to look up weather forcast using a third party API
   - User will be able to create an account
