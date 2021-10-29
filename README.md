@@ -14,6 +14,7 @@ https://whimsical.com/5eqKh3PCh2BaRvoL2fEpZq
 
 ## API:
   - Airtable will be used to create accounts and store a favorites list of locations
+  - Airtable API: https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=[key]
 
   ```
   "records": [
@@ -32,6 +33,76 @@ https://whimsical.com/5eqKh3PCh2BaRvoL2fEpZq
             "createdTime": "2021-10-21T19:05:38.000Z"
         }
     ]
+  ```
+
+  - Mapquest API: http://www.mapquestapi.com/geocoding/v1/address?key=[key]&location=[location]
+
+  ```
+   "locations": [
+      {
+        "street": "",
+        "adminArea6": "",
+        "adminArea6Type": "Neighborhood",
+        "adminArea5": "London",
+        "adminArea5Type": "City",
+        "adminArea4": "Westminster",
+        "adminArea4Type": "County",
+        "adminArea3": "",
+        "adminArea3Type": "State",
+        "adminArea1": "GB",
+        "adminArea1Type": "Country",
+        "postalCode": "",
+        "geocodeQualityCode": "A5XAX",
+        "geocodeQuality": "CITY",
+        "dragPoint": false,
+        "sideOfStreet": "N",
+        "linkId": "282415113",
+        "unknownInput": "",
+        "type": "s",
+        "latLng": {
+          "lat": 51.507276,
+          "lng": -0.12766
+        },
+        "displayLatLng": {
+          "lat": 51.507276,
+          "lng": -0.12766
+        },
+        "mapUrl": "http://www.mapquestapi.com/staticmap/v5/map?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&type=map&size=225,160&locations=51.507276,-0.12766|marker-sm-50318A-1&scalebar=true&zoom=12&rand=-2104418756"
+      },
+  ```
+
+  - OpenWeatherMap API: https://api.openweathermap.org/data/2.5/onecall?lat=50&lon=50&units=imperial&exclude=minutely&appid=[key]
+
+  ```
+  {
+    "lat": 50,
+    "lon": 50,
+    "timezone": "Asia/Oral",
+    "timezone_offset": 18000,
+    "current": {
+        "dt": 1635445154,
+        "sunrise": 1635391366,
+        "sunset": 1635427476,
+        "temp": 40.95,
+        "feels_like": 35.31,
+        "pressure": 1020,
+        "humidity": 67,
+        "dew_point": 30.99,
+        "uvi": 0,
+        "clouds": 85,
+        "visibility": 10000,
+        "wind_speed": 8.88,
+        "wind_deg": 224,
+        "wind_gust": 20.4,
+        "weather": [
+            {
+                "id": 804,
+                "main": "Clouds",
+                "description": "overcast clouds",
+                "icon": "04n"
+            }
+        ]
+    },
   ```
 
 ## MVP:
