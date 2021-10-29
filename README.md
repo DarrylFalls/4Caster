@@ -58,5 +58,14 @@ https://whimsical.com/5eqKh3PCh2BaRvoL2fEpZq
 |Friday     | present project                                     |incomplete|
 
 ## Timeframes:
+| Task            | Estimated Time | Actual Time |
+| --------------- | :------------: | :---------: |
+|set up APIs      | 4 hours        | 8 hours     |
+|build readme     | 2 hours        | 3 hours     |
+|react components | 20 hours       | 25 hours    |
+|CSS styling      | 4 hours        | 6 hours     |
+|adding MUI       | 2 hours        | 4 hours     |
+|total:           | 30 hours       | 46 hours    |
+
 
 ## SWOT Analysis:
