@@ -11,7 +11,6 @@ const Navbar = ({setLocation, location, loggedIn, setLoggedIn, setOnHomePage, fa
     ev.preventDefault()
     const res = await axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&location=${input}`)
     setLocation(res.data.results[0].locations[0])
-    console.log(res.data)
     setInput('');
     setOnHomePage(false)
   }

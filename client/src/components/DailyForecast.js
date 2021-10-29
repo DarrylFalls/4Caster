@@ -3,21 +3,14 @@ import './DailyForecast.css'
 const DailyForecast = ({ weatherData }) => {
   const getDay = (dt) => {
     const a = new Date(dt * 1000);
-    // const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const year = a.getFullYear();
     const month = a.getMonth()+1;
     const day = a.getDate();
 
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return(weekday[new Date(`${month}/${day}/${year}`).getDay()])
-    
-    // console.log(`${month}/${date}/${year}`)
   }
-  // getDay()
-
-  if (weatherData) {
-    console.log(weatherData.daily)
-  }
+  
   return (
     <div className='forecast'>
       {weatherData ? weatherData.daily.map((day, idx) => (

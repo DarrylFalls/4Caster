@@ -10,7 +10,6 @@ const Login = ({ setLoggedIn, setUser, setUserData, setFavorites }) => {
 
   const checkUserInfo = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
-    console.log(res.data.records)
     let account = res.data.records.find((record) => record.fields.username === username)
     if (account === undefined) {
       alert('Sorry. That username does not exist')

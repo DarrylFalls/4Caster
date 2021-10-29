@@ -81,7 +81,6 @@ export default function SwipeableTemporaryDrawer(props) {
               props.setOnHomePage(false)
               const res = await axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&location=${text}`)
               props.setLocation(res.data.results[0].locations[0])
-              console.log(res.data)
             }}/>
           </ListItem>
         )) : null
