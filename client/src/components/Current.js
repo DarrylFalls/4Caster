@@ -1,6 +1,5 @@
 import './Current.css'
 import axios from 'axios'
-import { useState } from 'react'
 import snow from '../images/snow.mp4'
 import sunny from '../images/sunny-day.mp4'
 import clearNight from '../images/clear-night.mp4'
@@ -14,14 +13,6 @@ import foggyNight from '../images/foggy-night.mp4'
 
 
 const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavorites, userData, setUserData }) => {
-  const [videoSrc, setVideoSrc] = useState('')
-  const [icon, setIcon] = useState('')
-  // console.log(weatherData.current.weather[0].icon)
-  // const getIcon = () => {
-    
-  //   setIcon(weatherData.current.weather[0].icon)
-  // }
-  // getIcon()
   const resetData = (account) => {
     setUserData(account)
     setFavorites(JSON.parse(account.fields.favorites))
@@ -42,30 +33,6 @@ const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavo
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
     const account = res.data.records.find((record) => record.id === userData.id)
     resetData(account)
-  }
-
-  const getVideo = () => {
-    if (weatherData.current.weather[0].icon === '01d' || weatherData.current.weather[0].icon === '02d') {
-      return (sunny)
-    } else if (weatherData.current.weather[0].icon === '01n' || weatherData.current.weather[0].icon === '02n') {
-      return (clearNight)
-    } else if (weatherData.current.weather[0].icon === '03d' || weatherData.current.weather[0].icon === '04d') {
-      return (cloudyDay)
-    } else if (weatherData.current.weather[0].icon === '03n' || weatherData.current.weather[0].icon === '04n') {
-      return (cloudyNight)
-    } else if (weatherData.current.weather[0].icon === '09d' || weatherData.current.weather[0].icon === '10d') {
-      return (rain)
-    } else if (weatherData.current.weather[0].icon === '09n' || weatherData.current.weather[0].icon === '10n') {
-      return (rain)
-    } else if (weatherData.current.weather[0].icon === '11d' || weatherData.current.weather[0].icon === '11n') {
-      return (thunder)
-    } else if (weatherData.current.weather[0].icon === '13d' || weatherData.current.weather[0].icon === '13n') {
-      return (snow)
-    } else if (weatherData.current.weather[0].icon === '50d') {
-      return (foggyDay)
-    } else if (weatherData.current.weather[0].icon === '50n') {
-      return (foggyNight)
-    }
   }
 
   return (
@@ -93,7 +60,7 @@ const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavo
         <h3>{weatherData ? weatherData.current.weather[0].description : null}</h3>
       </div>
       <div>
-        {weatherData ?  <img src={`http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} className='weather-icon' /> : null}
+        {weatherData ?  <img src={`http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} className='weather-icon' alt='icon' /> : null}
       </div>
       <div className='info'>
         <h1>{weatherData ? `${weatherData.current.temp}° F` : null}</h1>

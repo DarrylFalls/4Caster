@@ -23,7 +23,7 @@ const DailyForecast = ({ weatherData }) => {
       {weatherData ? weatherData.daily.map((day, idx) => (
         <div className='day' key={idx}>
           <h2>{getDay(day.dt)}</h2>
-          <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`} className='small-weather-icon' />
+          <img src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`} className='small-weather-icon' alt='icon'/>
           <h4>{`Min: ${day.temp.min}° F`}</h4>
           <h4>{`Max: ${day.temp.max}° F`}</h4>
         </div>

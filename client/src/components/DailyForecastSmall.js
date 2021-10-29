@@ -22,14 +22,7 @@ const DailyForcastSmall = ({ weatherData }) => {
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return(weekday[new Date(`${month}/${day}/${year}`).getDay()])
   }
-  const getTime = (dt) => {
-    const a = new Date(dt * 1000);
-    const hour = a.getHours();
-    const min = a.getMinutes();
-    const sec = a.getSeconds();
-    return (`${hour < 10 ? '0' + hour : hour}:${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}`)
-  }
-  // console.log(weatherData.daily[0].sunset + weatherData.timezone_offset)
+  
   return (
     <div className='small-forecast'>
       <div>
@@ -41,7 +34,7 @@ const DailyForcastSmall = ({ weatherData }) => {
           <div className='day-div'>
             <h1>{getDay(weatherData.daily[0].dt)}</h1>
             <h4>{weatherData.daily[0].weather[0].description}</h4>
-            <img src={`http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}.png`} className='small-forecast-icon'/>
+            <img src={`http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
             <h4>{`Min: ${weatherData.daily[0].temp.min}`}</h4>
             <h4>{`Max: ${weatherData.daily[0].temp.max}`}</h4>
             {more ? <h4>{`UV Index: ${weatherData.daily[0].uvi}`}</h4> : null}
@@ -54,7 +47,7 @@ const DailyForcastSmall = ({ weatherData }) => {
           <div className='day-div'>
             <h1>{getDay(weatherData.daily[1].dt)}</h1>
             <h4>{weatherData.daily[1].weather[0].description}</h4>
-            <img src={`http://openweathermap.org/img/wn/${weatherData.daily[1].weather[0].icon}.png`} className='small-forecast-icon'/>
+            <img src={`http://openweathermap.org/img/wn/${weatherData.daily[1].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
             <h4>{`Min: ${weatherData.daily[1].temp.min}`}</h4>
             <h4>{`Max: ${weatherData.daily[1].temp.max}`}</h4>
             {more ? <h4>{`UV Index: ${weatherData.daily[1].uvi}`}</h4> : null}
@@ -66,7 +59,7 @@ const DailyForcastSmall = ({ weatherData }) => {
           <div className='day-div'>
             <h1>{getDay(weatherData.daily[2].dt)}</h1>
             <h4>{weatherData.daily[2].weather[0].description}</h4>
-            <img src={`http://openweathermap.org/img/wn/${weatherData.daily[2].weather[0].icon}.png`} className='small-forecast-icon'/>
+            <img src={`http://openweathermap.org/img/wn/${weatherData.daily[2].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
             <h4>{`Min: ${weatherData.daily[2].temp.min}`}</h4>
             <h4>{`Max: ${weatherData.daily[2].temp.max}`}</h4>
             {more ? <h4>{`UV Index: ${weatherData.daily[2].uvi}`}</h4> : null}
@@ -78,7 +71,7 @@ const DailyForcastSmall = ({ weatherData }) => {
         <div className='day-div'>
         <h1>{getDay(weatherData.daily[3].dt)}</h1>
         <h4>{weatherData.daily[3].weather[0].description}</h4>
-        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[3].weather[0].icon}.png`} className='small-forecast-icon'/>
+        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[3].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
         <h4>{`Min: ${weatherData.daily[3].temp.min}`}</h4>
         <h4>{`Max: ${weatherData.daily[3].temp.max}`}</h4>
         {more ? <h4>{`UV Index: ${weatherData.daily[3].uvi}`}</h4> : null}
@@ -90,7 +83,7 @@ const DailyForcastSmall = ({ weatherData }) => {
         <div className='day-div'>
         <h1>{getDay(weatherData.daily[4].dt)}</h1>
         <h4>{weatherData.daily[4].weather[0].description}</h4>
-        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[4].weather[0].icon}.png`} className='small-forecast-icon'/>
+        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[4].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
         <h4>{`Min: ${weatherData.daily[4].temp.min}`}</h4>
         <h4>{`Max: ${weatherData.daily[4].temp.max}`}</h4>
         {more ? <h4>{`UV Index: ${weatherData.daily[4].uvi}`}</h4> : null}
@@ -102,7 +95,7 @@ const DailyForcastSmall = ({ weatherData }) => {
         <div className='day-div'>
         <h1>{getDay(weatherData.daily[5].dt)}</h1>
         <h4>{weatherData.daily[5].weather[0].description}</h4>
-        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[5].weather[0].icon}.png`} className='small-forecast-icon'/>
+        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[5].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
         <h4>{`Min: ${weatherData.daily[5].temp.min}`}</h4>
         <h4>{`Max: ${weatherData.daily[5].temp.max}`}</h4>
         {more ? <h4>{`UV Index: ${weatherData.daily[5].uvi}`}</h4> : null}
@@ -114,7 +107,7 @@ const DailyForcastSmall = ({ weatherData }) => {
         <div className='day-div'>
         <h1>{getDay(weatherData.daily[6].dt)}</h1>
         <h4>{weatherData.daily[6].weather[0].description}</h4>
-        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[6].weather[0].icon}.png`} className='small-forecast-icon'/>
+        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[6].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
         <h4>{`Min: ${weatherData.daily[6].temp.min}`}</h4>
         <h4>{`Max: ${weatherData.daily[6].temp.max}`}</h4>
         {more ? <h4>{`UV Index: ${weatherData.daily[6].uvi}`}</h4> : null}
@@ -126,7 +119,7 @@ const DailyForcastSmall = ({ weatherData }) => {
         <div className='day-div'>
         <h1>{getDay(weatherData.daily[7].dt)}</h1>
         <h4>{weatherData.daily[7].weather[0].description}</h4>
-        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[7].weather[0].icon}.png`} className='small-forecast-icon'/>
+        <img src={`http://openweathermap.org/img/wn/${weatherData.daily[7].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
         <h4>{`Min: ${weatherData.daily[7].temp.min}`}</h4>
         <h4>{`Max: ${weatherData.daily[7].temp.max}`}</h4>
         {more ? <h4>{`UV Index: ${weatherData.daily[7].uvi}`}</h4> : null}

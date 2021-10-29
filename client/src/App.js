@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios'
+import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Location from './components/Location';
 import Home from './components/Home';
-import {Route, Link} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import CreateAccount from './components/CreateAccount';
 
 
@@ -16,11 +15,6 @@ function App() {
   const [location, setLocation] = useState('')
   const [loggedIn, setLoggedIn] = useState(false)
   const [onHomePage, setOnHomePage] = useState(true)
-
-  // useEffect(() => {
-  //   console.log(loggedIn)
-  // })
-
 
   return (
     <div className="App">

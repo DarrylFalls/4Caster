@@ -1,14 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -35,14 +31,6 @@ export default function SwipeableTemporaryDrawer(props) {
 
     setState({ ...state, [anchor]: open });
   };
-
-  const favoritesClick = async (ev) => {
-    props.setOnHomePage(false)
-    console.log(ev.target.text)
-    const res = await axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&location=${ev.target.text}`)
-    props.setLocation(res.data.results[0].locations[0])
-    console.log(res.data)
-  }
 
   const list = (anchor) => (
     <Box
