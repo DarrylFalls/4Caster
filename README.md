@@ -35,7 +35,7 @@ https://whimsical.com/weather-app-7jzmNrXKrRfJhJTYVwJaq4
 |Tuesday    | finish components and start CSS                     |complete|
 |Wednesday  | work on CSS and post-MVP                            |complete|
 |Thursday   | finish CSS and post-MVP                             |complete|
-|Friday     | 
+|Friday     | present project                                     |incomplete|
 
 ## Timeframes:
 
