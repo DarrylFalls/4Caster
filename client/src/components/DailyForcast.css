@@ -1,0 +1,14 @@
+.small-weather-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.forecast {
+  display: flex;
+}
+
+.day {
+  width: 10vw;
+  border-width: 2px;
+  border-color: black;
+}
