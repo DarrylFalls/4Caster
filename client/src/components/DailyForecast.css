@@ -1,0 +1,19 @@
+.small-weather-icon {
+  height: 70px;
+  width: 70px;
+}
+
+.forecast {
+  display: flex;
+  margin-top: 1vh;
+}
+
+.day {
+  width: 8vw;
+  /* border-width: 2px; */
+  /* border-color: black; */
+  margin-right: 1vw;
+  border-style: outset;
+  background: linear-gradient(to bottom, rgb(64, 82, 160), rgb(60, 78, 95));
+  /* background: red; */
+}

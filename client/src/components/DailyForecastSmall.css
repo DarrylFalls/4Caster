@@ -1,0 +1,15 @@
+.small-forecast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.day-div {
+  width: 60vw;
+}
+
+.small-forecast-icon {
+  height: 80px;
+  width: 80px;
+}

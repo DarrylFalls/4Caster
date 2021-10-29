@@ -1,8 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import Current from "./Current"
-import DailyForcast from "./DailyForcast"
-import DailyForcastSmall from "./DailyForcastSmall"
+import DailyForecast from "./DailyForecast"
+import DailyForecastSmall from "./DailyForecastSmall"
 
 
 const Location = ({ locationData, setWeather, weather, loggedIn, user, favorites, setFavorites, userData, setUserData }) => {
@@ -21,7 +21,7 @@ const Location = ({ locationData, setWeather, weather, loggedIn, user, favorites
         <Current locationData={locationData} weatherData={weatherData} loggedIn={loggedIn} user={user} favorites={favorites} setFavorites={setFavorites} userData={userData} setUserData={setUserData} />
       </div>
       <div>
-        {window.screen.width < 800 ? <DailyForcastSmall weatherData={weatherData} /> : <DailyForcast weatherData={weatherData}/>}
+        {window.screen.width < 800 ? <DailyForecastSmall weatherData={weatherData} /> : <DailyForecast weatherData={weatherData}/>}
       </div>
     </div>
   )

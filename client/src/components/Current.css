@@ -7,9 +7,10 @@
   width: 80vw;
   display: flex;
   justify-content: center;
-  margin-top: 3vh;
+  margin-top: 2vh;
   position: relative;
   padding-bottom: 3vh;
+  padding-top: 2vh;
 }
 
 .add-favorite:hover {
@@ -26,6 +27,8 @@ h4 {
 }
 
 .current-info-div {
+  padding-top: 1vh;
+  padding-bottom: 2vh;
   z-index: 10;
 }
 
