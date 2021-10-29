@@ -13,3 +13,9 @@
   height: 80px;
   width: 80px;
 }
+
+.more-less {
+  border-radius: 5px;
+  background: rgb(86, 86, 88);
+  color: white;
+}
