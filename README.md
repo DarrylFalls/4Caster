@@ -29,12 +29,12 @@ https://whimsical.com/weather-app-7jzmNrXKrRfJhJTYVwJaq4
 | Day       | Deliverable                                         |   Status   |
 | --------- | --------------------------------------------------- | :--------: |
 |Friday     | build wireframe and propose project for approval    |complete|
-|Saturday   | build basic components in react                     |incomplete|
-|Sunday     | 
-|Monday     | 
-|Tuesday    | 
-|Wednesday  | 
-|Thursday   | 
+|Saturday   | add basic components in react                       |complete|
+|Sunday     | build components to reach MVP                       |complete|
+|Monday     | continue to work on components and API's            |complete|
+|Tuesday    | finish components and start CSS                     |complete|
+|Wednesday  | work on CSS and post-MVP                            |complete|
+|Thursday   | finish CSS and post-MVP                             |complete|
 |Friday     | 
 
 ## Timeframes:
