@@ -60,7 +60,7 @@ const Current = ({ locationData, weatherData, loggedIn, user, favorites, setFavo
         <h3>{weatherData ? weatherData.current.weather[0].description : null}</h3>
       </div>
       <div>
-        {weatherData ?  <img src={`http://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} className='weather-icon' alt='icon' /> : null}
+        {weatherData ?  <img src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`} className='weather-icon' alt='icon' /> : null}
       </div>
       <div className='info'>
         <h1>{weatherData ? `${weatherData.current.temp}° F` : null}</h1>
