@@ -35,8 +35,8 @@ const Login = ({ setLoggedIn, setUser, setUserData, setFavorites }) => {
     setUser('Guest')
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='login-div'>
+      <form onSubmit={handleSubmit} className='login-form'>
         <label>Username: </label>
         <input value={username} onChange={(ev) => setUsername(ev.target.value)}></input>
         <br />

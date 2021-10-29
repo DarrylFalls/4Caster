@@ -32,7 +32,7 @@ const DailyForcastSmall = ({ weatherData }) => {
       <div >
         {weatherData && day === 0 ? 
           <div className='day-div'>
-            <h1>{getDay(weatherData.daily[0].dt)}</h1>
+            <h1>Today</h1>
             <h4>{weatherData.daily[0].weather[0].description}</h4>
             <img src={`http://openweathermap.org/img/wn/${weatherData.daily[0].weather[0].icon}.png`} className='small-forecast-icon' alt='icon'/>
             <h4>{`Min: ${weatherData.daily[0].temp.min}° F`}</h4>

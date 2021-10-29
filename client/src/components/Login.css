@@ -14,3 +14,21 @@ p {
 a {
   color: rgb(5, 172, 83);
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* width: 300px; */
+  background: rgb(119, 119, 119);
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.login-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

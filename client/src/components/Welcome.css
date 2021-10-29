@@ -2,3 +2,10 @@
   margin-left: 5vw;
   margin-right: 5vw;
 }
+
+.welcome-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

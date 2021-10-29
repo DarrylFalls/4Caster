@@ -20,17 +20,15 @@
   margin-left: 20vw;
 }
 .menu-button {
-  /* height: 50%; */
-  /* margin-left: 5vw; */
   color: white;
 }
 
-form{
+.search-form{
   margin-right: 5vw;
 }
 
-.search {
-  width: 400px;
+.search-div {
+  width: 350px;
 }
 
 
@@ -43,24 +41,13 @@ form{
   .title-link {
     text-decoration: none;
   }
-  form{
+  .search-form{
     margin-right: 5vw;
   }
 }
 @media screen and (min-width: 800px) {
-  /* form{
-    margin-right: 35vw;
-  } */
-  /* input {
-    height: 30px;
-  } */
   .navbar {
     height: 15vh;
   }
 
 }
-/* @media screen and (min-width: 1100px) {
-  form{
-    margin-right: 40vw;
-  }
-} */

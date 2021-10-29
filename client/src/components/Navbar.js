@@ -30,9 +30,9 @@ const Navbar = ({setLocation, location, loggedIn, setLoggedIn, setOnHomePage, fa
         <h1 className='title'>4Caster</h1>
         </Link>
       </div>
-      <div className='search'>
+      <div className='search-div'>
         {loggedIn ?
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className='search-form'>
             <input type='text' placeholder='Search by city' value={input} onChange={(ev) => setInput(ev.target.value)} />
             <input type='submit' value='Search' />
           </form>
