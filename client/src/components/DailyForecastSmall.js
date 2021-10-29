@@ -15,10 +15,10 @@ const DailyForcastSmall = ({ weatherData }) => {
     setMore(false)
   }
   const getDay = (dt) => {
-    const a = new Date(dt * 1000);
-    const year = a.getFullYear();
-    const month = a.getMonth()+1;
-    const day = a.getDate();
+    const date = new Date(dt * 1000);
+    const year = date.getFullYear();
+    const month = date.getMonth()+1;
+    const day = date.getDate();
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return(weekday[new Date(`${month}/${day}/${year}`).getDay()])
   }
