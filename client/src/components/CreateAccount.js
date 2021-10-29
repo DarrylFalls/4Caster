@@ -25,7 +25,6 @@ const CreateAccount = ({setUser, setUserData, setLoggedIn}) => {
   const checkUsername = async () => {
     const res = await axios.get('https://api.airtable.com/v0/app4ZMuiUaRsyIY94/Table%201?api_key=key3kKNmypHQOUSxM')
     const nameCheck = res.data.records.find((record) => record.fields.username === username)
-    console.log(nameCheck)
     setTimeout(() => {
       if (nameCheck === undefined) {
         newUser()
