@@ -79,7 +79,7 @@ export default function SwipeableTemporaryDrawer(props) {
           <ListItem button key={text}>
             <ListItemText primary={text} onClick={async () => {
               props.setOnHomePage(false)
-              const res = await axios.get(`http://www.mapquestapi.com/geocoding/v1/address?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&location=${text}`)
+              const res = await axios.get(`https://www.mapquestapi.com/geocoding/v1/address?key=bTdBubAIGCp23LC0DL0nfCNW3R4HzIQj&location=${text}`)
               props.setLocation(res.data.results[0].locations[0])
             }}/>
           </ListItem>
