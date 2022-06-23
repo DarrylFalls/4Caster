@@ -41,7 +41,7 @@ const Login = ({ setLoggedIn, setUser, setUserData, setFavorites }) => {
         <input value={username} onChange={(ev) => setUsername(ev.target.value)}></input>
         <br />
         <label>Password: </label>
-        <input value={password} onChange={(ev) => setPassword(ev.target.value)}></input>
+        <input value={password} type='password' onChange={(ev) => setPassword(ev.target.value)}></input>
         <br />
         <input type='submit' value='Login' />
       </form>
