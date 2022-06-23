@@ -1,7 +1,7 @@
 # 4Caster
 
 ## Live Site:
-  - https://sharp-heyrovsky-a2d78a.netlify.app/
+  - https://4caster.netlify.app/
 
 ## Description:
 
